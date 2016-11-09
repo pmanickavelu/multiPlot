@@ -24,7 +24,6 @@ multiPlot <- function(config) {
         else{
             pp <- add_trace(pp,y= ds[[config[i,"y"]]], mode = 'lines+markers', name = config[i,"trace_names"])
         }
-        print(config[i,"trace_names"])
     }
     pp
 }
