@@ -1,9 +1,11 @@
 Package: multiPlot
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Plotly plot using config
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Prabhu Manickavelu
+Maintainer: Prabhu Manickavelu <prabhu.manickavelu@gmail.com>
+Description: Config based line ploting with plotly using config.
+License: GPL-3
 LazyData: TRUE
+RoxygenNote: 5.0.1
+Imports: plotly

@@ -1,18 +1,28 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Build and Reload Package:  'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
+#' multi line plotly
+#'
+#' Reading a DF of config with path of the csv file with data, the x column, y column n, legend and color for the line.
+#'
+#' @param config a data.frame of length n
+#' @return pp a plot form plotly
+#' @author Prabhu Manickavelu
+#' @export
+#' @import plotly
+#' @importFrom utils read.csv
 
-multiPlot <- function() {
-  print("Hello, world!")
+multiPlot <- function(config) {
+  if(!is.data.frame(config)){
+      print("Config is not a data frame")
+      return()
+  }
+    pp <- NULL
+    for(i in seq(nrow(config))){
+        ds<-read.csv(config[i,"files"], header = T,stringsAsFactors = F)
+        if(is.null(pp)){
+            pp <- plot_ly(x = ds[[config[i,"x"]]], y= ds[[config[i,"y"]]], type = 'scatter', mode = 'lines+markers', name = config[i,"trace_names"])
+        }
+        else{
+            pp <- add_trace(pp,y= ds[[config[i,"y"]]], mode = 'lines+markers', name = config[i,"trace_names"])
+        }
+    }
+    pp
 }
