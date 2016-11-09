@@ -7,7 +7,8 @@
 multiPlot(config)
 }
 \arguments{
-\item{config}{a data.frame of length n}
+\item{config}{a data.frame of length n
+the config data.frame must contain a files column which holds the location of the file, a x column which tells the column name to be used for the x axis, and y column for y axis. the data.frame may also contain a trace_names column for the legend.}
 }
 \value{
 pp a plot form plotly
